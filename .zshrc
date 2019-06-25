@@ -118,7 +118,7 @@ compinit
 #
 # PATHS
 #
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home`
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle

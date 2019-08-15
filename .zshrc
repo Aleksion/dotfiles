@@ -127,6 +127,7 @@ export ANDROID_NDK_HOME=/usr/local/share/android-ndk
 export INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm
 
 
+export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
@@ -142,3 +143,8 @@ if [ -f '/Users/aleks/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aleks/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/aleks/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aleks/google-cloud-sdk/completion.zsh.inc'; fi
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+unsetopt share_history

@@ -103,6 +103,7 @@ alias ll='colorls --group-directories-first --almost-all --long' # detailed list
 alias changezsh="code ~/.zshrc"
 # Re-run source command on .zshrc to update current terminal session with new settings
 alias updatezsh="source ~/.zshrc"
+alias ngrok="/Users/aleks/tools/ngrok"
 
   # Set Spaceship ZSH as a prompt
 autoload -U compinit
@@ -148,3 +149,4 @@ if [ -f '/Users/aleks/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ale
 
 . $HOME/.asdf/completions/asdf.bash
 unsetopt share_history
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

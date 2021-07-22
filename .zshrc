@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-source $(dirname $(gem which colorls))/tab_complete.sh
+# source $(dirname $(gem which colorls))/tab_complete.sh
 source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . /usr/local/etc/profile.d/z.sh
 
@@ -119,20 +119,48 @@ compinit
 #
 # PATHS
 #
-export JAVA_HOME=`/usr/libexec/java_home`
+
+# Java
+export JAVA_HOME_8=$(/usr/libexec/java_home -v1.8)
+export JAVA_HOME_11=$(/usr/libexec/java_home -v11)
+# export JAVA_HOME_14=$(/usr/libexec/java_home -v14)
+
+
+# Java 8
+# export JAVA_HOME=$JAVA_HOME_8
+# Java 11
+export JAVA_HOME=$JAVA_HOME_11
+
+# Other
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_NDK_HOME=/usr/local/share/android-ndk
 export INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm
+export SENTE_ELIDE_JS_REQUIRE=true
 
 
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export PYENV_ROOT="$HOME/.pyenv"
+
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PATH:$HOME/tools/flutter/bin"
 export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
+eval "$(pyenv init -)"
+
+
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -150,3 +178,14 @@ if [ -f '/Users/aleks/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ale
 . $HOME/.asdf/completions/asdf.bash
 unsetopt share_history
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if [ -e /Users/aleks/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/aleks/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+
+
+eval "$(direnv hook $(basename $SHELL))"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+test ! -f ~/.pyenv/version && pyenv global system
+
+export PATH="$HOME/.poetry/bin:$PATH"
